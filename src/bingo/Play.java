@@ -1,8 +1,39 @@
 package bingo;
 
-public abstract class Play extends Bingo {
+public abstract class Play {
 	
-	public Play() {
+	private String name;
+	private int[][] bingo;
+	private int bingoCount;	
+	
+	/* getter */
+	public String getName() {
+		return name;
+	}
+
+	public int[][] getBingo() {
+		return bingo;
+	}
+	
+	public int getBingoCount() {
+		return bingoCount;
+	}
+	
+	/* setter */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setBingo(int[][] bingo) {
+		this.bingo = bingo;
+	}
+	
+	public void setBingoCount(int bingoCount) {
+		this.bingoCount = bingoCount;
+	}
+
+	
+	public void Make() {
 		int[] temp = new int[25];
 
 		for (int i = 0; i < temp.length; i++) {
@@ -17,81 +48,93 @@ public abstract class Play extends Bingo {
 			}
 		}
 		int j = 0;
-		for (int i = 0; i < getBingo().length; i++) {
-			for (int k = 0; k < getBingo()[i].length; k++) {
-				getBingo()[i][k] = temp[j++];
+		bingo = new int [5][5];
+		for (int i = 0; i < bingo.length; i++) {
+			for (int k = 0; k < bingo[i].length; k++) {
+				bingo[i][k] = temp[j++];
 			}
 		}
-
-		System.out.println("빙고판이 완성되었습니다.");
+		
 	}
 	
 	public void Print() {
-		for (int i = 0; i < getBingo().length; i++) {
-			for (int k = 0; k < getBingo()[i].length; k++) {
-				if (getBingo()[i][k] == 0) {
-					System.out.print("\t");
-				} else {
-					System.out.print(getBingo()[i][k] + "\t");
-				}
+		System.out.println("====== " + name + "의 빙고 카운트 : " + bingoCount +" ======");
+
+		for (int i = 0; i < bingo.length; i++) {
+			for (int k = 0; k < bingo[i].length; k++) {
+				System.out.print(bingo[i][k] + "\t");
+
 			}
 			System.out.println();
 		}
 	}
 	
-	public abstract int Turn(int vsNum);
+	public abstract int Turn();
+	
+	public boolean check(int num) {
+		for (int i = 0; i < bingo.length; i++) {
+			for (int k = 0; k < bingo[i].length; k++) {
+				if (bingo[i][k] == num) {
+					bingo[i][k] = 0;
+					Match();
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	public void Match() {
 
 		int bingoMatch;
-		setBingoCount(0);
+		bingoCount=0;
 
 		/* 가로줄 빙고 */
-		for (int i = 0; i < getBingo().length; i++) {
+		for (int i = 0; i < bingo.length; i++) {
 			bingoMatch = 0;
-			for (int k = 0; k < getBingo()[i].length; k++) {
-				if (getBingo()[i][k] == 0) {
+			for (int k = 0; k < bingo[i].length; k++) {
+				if (bingo[i][k] == 0) {
 					bingoMatch++;
 				}
 			}
-			if (bingoMatch == getBingo()[i].length) {
-				setBingoCount(getBingoCount()+1);
+			if (bingoMatch == bingo[i].length) {
+				bingoCount+=1;
 			}
 		}
 
 		/* 세로줄 빙고 */
-		for (int i = 0; i < getBingo().length; i++) {
+		for (int i = 0; i < bingo.length; i++) {
 			bingoMatch = 0;
-			for (int k = 0; k < getBingo()[i].length; k++) {
-				if (getBingo()[k][i] == 0) {
+			for (int k = 0; k < bingo[i].length; k++) {
+				if (bingo[k][i] == 0) {
 					bingoMatch++;
 				}
 			}
-			if (bingoMatch == getBingo()[i].length) {
-				setBingoCount(getBingoCount()+1);
+			if (bingoMatch == bingo[i].length) {
+				bingoCount+=1;
 			}
 		}
 
 		/* 좌상-우하 대각선 빙고 */
 		bingoMatch = 0;
-		for (int i = 0; i < getBingo().length; i++) {
-			if (getBingo()[i][i] == 0) {
+		for (int i = 0; i < bingo.length; i++) {
+			if (bingo[i][i] == 0) {
 				bingoMatch++;
 			}
 		}
-		if (bingoMatch == getBingo().length) {
-			setBingoCount(getBingoCount()+1);
+		if (bingoMatch == bingo.length) {
+			bingoCount+=1;
 		}
 
 		/* 좌하-우상 대각선 빙고 */
 		bingoMatch = 0;
-		for (int i = 0; i < getBingo().length; i++) {
-			if (getBingo()[i][getBingo().length - i - 1] == 0) {
+		for (int i = 0; i < bingo.length; i++) {
+			if (bingo[i][bingo.length - i - 1] == 0) {
 				bingoMatch++;
 			}
 		}
-		if (bingoMatch == getBingo().length) {
-			setBingoCount(getBingoCount()+1);
+		if (bingoMatch == bingo.length) {
+			bingoCount+=1;
 		}
 
 	}
