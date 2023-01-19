@@ -34,3 +34,6 @@
 	2. 플레이어들의 정보는 객체배열에 입력합니다.
 	3. 플레이어는 플레이어 이름을 입력합니다.
 	
+# 04 클래스 다이어그램
+![class_diagram](https://github.com/HeeManHer/Bingo_Game/blob/master/class_daiagram.png)
+# 05 커뮤니케이션 다이어그램
