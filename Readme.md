@@ -38,3 +38,4 @@
 ![class_diagram](https://github.com/HeeManHer/Bingo_Game/blob/master/class_diagram.png)
 # 05 커뮤니케이션 다이어그램
 ![communication_diagram](https://github.com/HeeManHer/Bingo_Game/blob/master/communication_diagram.png)
+![communication_diagram2](https://github.com/HeeManHer/Bingo_Game/blob/master/communication_diagram2.png)
