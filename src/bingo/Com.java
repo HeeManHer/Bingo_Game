@@ -7,7 +7,7 @@ public class Com extends Play {
 	}
 
 	@Override
-	public int Turn(int vsNum) {
+	public int Turn() {
 		while (true){
 			int num = (int) (Math.random() * 25 + 1);
 			

@@ -15,7 +15,7 @@ public class Player extends Play {
 	
 
 	@Override
-	public int Turn(int vsNum) {
+	public int Turn() {
 		Scanner sc = new Scanner(System.in);
 		int num = 0;
 		
