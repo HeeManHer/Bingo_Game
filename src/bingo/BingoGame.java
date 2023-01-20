@@ -9,52 +9,47 @@ public class BingoGame {
 	public void game() {
 		Scanner sc = new Scanner(System.in);
 
-		while (true) {
-			if (play[0] != null) {
-				break;
-			}
-			System.out.println("빙고게임을 시작합니다.");
-			System.out.println("0. 종료");
-			System.out.println("1. 혼자서");
-			System.out.println("2. 둘이서");
-			int no = sc.nextInt();
-			String name;
-			switch (no) {
-			case 0:
-				System.out.println("게임을 종료합니다.");
-				return;
+		System.out.println("빙고게임을 시작합니다.");
+		System.out.println("0. 종료");
+		System.out.println("1. 혼자서");
+		System.out.println("2. 둘이서");
+		int no = sc.nextInt();
+		String name;
+		switch (no) {
+		case 0:
+			System.out.println("게임을 종료합니다.");
+			return;
 
-			case 1:
-				System.out.println("컴퓨터랑 대전합니다.");
-				System.out.println("플레이어1의 이름을 입력하세요 : ");
-				sc.nextLine();
-				name = sc.nextLine();
-				play[0] = new Player(name);
-				play[0].Make();
-				
-				play[1] = new Com();
-				play[1].Make();
+		case 1:
+			System.out.println("컴퓨터랑 대전합니다.");
+			System.out.println("플레이어1의 이름을 입력하세요 : ");
+			sc.nextLine();
+			name = sc.nextLine();
+			play[0] = new Player(name);
+			play[0].Make();
 
-				break;
+			play[1] = new Com();
+			play[1].Make();
 
-			case 2:
-				System.out.println("플레이어끼리 대전합니다.");
-				System.out.println("플레이어1의 이름을 입력하세요 : ");
-				sc.nextLine();
-				name = sc.nextLine();
-				play[0] = new Player(name);
-				play[0].Make();
-				
-				System.out.println("플레이어2의 이름을 입력하세요 : ");
-				name = sc.nextLine();
-				play[1] = new Player(name);
-				play[1].Make();
+			break;
 
-				break;
-			default:
-				System.out.println("잘못 입력하셨습니다. 다시 입력하세요");
-				break;
-			}
+		case 2:
+			System.out.println("플레이어끼리 대전합니다.");
+			System.out.println("플레이어1의 이름을 입력하세요 : ");
+			sc.nextLine();
+			name = sc.nextLine();
+			play[0] = new Player(name);
+			play[0].Make();
+
+			System.out.println("플레이어2의 이름을 입력하세요 : ");
+			name = sc.nextLine();
+			play[1] = new Player(name);
+			play[1].Make();
+			break;
+			
+		default:
+			System.out.println("잘못 입력하셨습니다. 다시 입력하세요");
+			break;
 		}
 
 		gamePlay();		
