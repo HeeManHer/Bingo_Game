@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BingoGame {
 
-	Play[] play = new Play[2];
+	Bingo[] play = new Bingo[2];
 
 	public void game() {
 		Scanner sc = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class BingoGame {
 			System.out.println("1. 혼자서");
 			System.out.println("2. 둘이서");
 			int no = sc.nextInt();
-String name;
+			String name;
 			switch (no) {
 			case 0:
 				System.out.println("게임을 종료합니다.");
