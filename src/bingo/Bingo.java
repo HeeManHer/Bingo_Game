@@ -1,6 +1,6 @@
 package bingo;
 
-public abstract class Play {
+public abstract class Bingo {
 	
 	private String name;
 	private int[][] bingo;
@@ -34,7 +34,7 @@ public abstract class Play {
 
 	
 	public void Make() {
-		int[] temp = new int[25];
+		int[] temp = new int[bingo.length*bingo.length];
 
 		for (int i = 0; i < temp.length; i++) {
 
