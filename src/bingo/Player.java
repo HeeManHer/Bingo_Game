@@ -2,7 +2,7 @@ package bingo;
 
 import java.util.Scanner;
 
-public class Player extends Play {
+public class Player extends Bingo {
 
 	public Player() {
 		setName("플레이어");

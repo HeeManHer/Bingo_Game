@@ -1,6 +1,6 @@
 package bingo;
 
-public class Com extends Play {
+public class Com extends Bingo {
 	
 	public Com() {
 		setName("com");
