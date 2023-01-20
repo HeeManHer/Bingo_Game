@@ -1,11 +1,11 @@
 package bingo;
 
 public abstract class Bingo {
-	
+
 	private String name;
 	private int[][] bingo;
-	private int bingoCount;	
-	
+	private int bingoCount;
+
 	/* getter */
 	public String getName() {
 		return name;
@@ -14,27 +14,28 @@ public abstract class Bingo {
 	public int[][] getBingo() {
 		return bingo;
 	}
-	
+
 	public int getBingoCount() {
 		return bingoCount;
 	}
-	
+
 	/* setter */
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public void setBingo(int[][] bingo) {
 		this.bingo = bingo;
 	}
-	
+
 	public void setBingoCount(int bingoCount) {
 		this.bingoCount = bingoCount;
 	}
 
-	
 	public void Make() {
-		int[] temp = new int[bingo.length*bingo.length];
+		bingo = new int[5][5];
+
+		int[] temp = new int[bingo.length * bingo.length];
 
 		for (int i = 0; i < temp.length; i++) {
 
@@ -47,18 +48,19 @@ public abstract class Bingo {
 				}
 			}
 		}
+
 		int j = 0;
-		bingo = new int [5][5];
+
 		for (int i = 0; i < bingo.length; i++) {
 			for (int k = 0; k < bingo[i].length; k++) {
 				bingo[i][k] = temp[j++];
 			}
 		}
-		
+
 	}
-	
+
 	public void Print() {
-		System.out.println("====== " + name + "의 빙고 카운트 : " + bingoCount +" ======");
+		System.out.println("====== " + name + "의 빙고 카운트 : " + bingoCount + " ======");
 
 		for (int i = 0; i < bingo.length; i++) {
 			for (int k = 0; k < bingo[i].length; k++) {
@@ -68,9 +70,9 @@ public abstract class Bingo {
 			System.out.println();
 		}
 	}
-	
+
 	public abstract int Turn();
-	
+
 	public boolean check(int num) {
 		for (int i = 0; i < bingo.length; i++) {
 			for (int k = 0; k < bingo[i].length; k++) {
@@ -87,7 +89,7 @@ public abstract class Bingo {
 	public void Match() {
 
 		int bingoMatch;
-		bingoCount=0;
+		bingoCount = 0;
 
 		/* 가로줄 빙고 */
 		for (int i = 0; i < bingo.length; i++) {
@@ -98,7 +100,7 @@ public abstract class Bingo {
 				}
 			}
 			if (bingoMatch == bingo[i].length) {
-				bingoCount+=1;
+				bingoCount += 1;
 			}
 		}
 
@@ -111,7 +113,7 @@ public abstract class Bingo {
 				}
 			}
 			if (bingoMatch == bingo[i].length) {
-				bingoCount+=1;
+				bingoCount += 1;
 			}
 		}
 
@@ -123,7 +125,7 @@ public abstract class Bingo {
 			}
 		}
 		if (bingoMatch == bingo.length) {
-			bingoCount+=1;
+			bingoCount += 1;
 		}
 
 		/* 좌하-우상 대각선 빙고 */
@@ -134,10 +136,9 @@ public abstract class Bingo {
 			}
 		}
 		if (bingoMatch == bingo.length) {
-			bingoCount+=1;
+			bingoCount += 1;
 		}
 
 	}
 
-	
 }
